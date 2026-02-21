@@ -1,0 +1,58 @@
+siteName:
+  ar: اسمك
+  en: Your Name
+defaultLang: ar
+
+footer:
+  ar: "&copy; {year} اسمك. جميع الحقوق محفوظة."
+  en: "&copy; {year} Your Name. All rights reserved."
+
+langDir:
+  ar: rtl
+  en: ltr
+
+theme:
+  accent: "#2D5A27"
+
+seo:
+  description:
+    ar: الموقع الشخصي والمدونة.
+    en: Personal website and blog.
+  image: ""
+
+author:
+  avatar: assets/author.svg
+  name:
+    ar: اسمك
+    en: Your Name
+  bio:
+    ar: نبذة مختصرة عنك.
+    en: A short bio about yourself.
+  location: Earth
+  website:
+    label: yoursite
+    url: "#home"
+  social:
+    - platform: github
+      url: https://github.com/username
+      label: GitHub
+    - platform: linkedin
+      url: https://linkedin.com/in/username
+      label: LinkedIn
+    - platform: twitter
+      url: https://x.com/username
+      label: Twitter
+    - platform: email
+      url: "mailto:you@example.com"
+      label: you@example.com
+
+pages:
+  - [home, الرئيسية, Home]
+  - [publications, المنشورات, Publications]
+  - [certifications, الشهادات, Certifications]
+  - [experience, الخبرات, Experience]
+  - [contact, تواصل, Contact]
+
+collections:
+  - [blogs, المدونة, Blogs, blog]
+  - [posts, المقالات, Posts, post]

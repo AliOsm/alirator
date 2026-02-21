@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading...</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Preconnect to CDNs for faster loading -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Kufi+Arabic:wght@600&family=Noto+Naskh+Arabic:wght@400;600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+
+  <!-- Syntax highlighting stylesheets -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- CDN scripts — defer so they don't block first paint -->
+  <script defer src="https://cdn.jsdelivr.net/npm/marked@12.0.1/marked.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
+  <!-- Site script -->
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Main area -->
+  <div class="main-wrapper">
+
+    <!-- Top nav bar -->
+    <nav>
+      <div class="nav-inner">
+        <button class="menu-btn" id="menu-btn" aria-label="Toggle menu"></button>
+        <div class="nav-links" id="nav-links"></div>
+        <div class="lang-toggle" id="lang-toggle">
+          <button onclick="setLang('ar')">عربي</button>
+          <button onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content area -->
+    <main>
+      <article class="content" id="content"></article>
+    </main>
+
+    <footer></footer>
+  </div>
+
+</body>
+</html>

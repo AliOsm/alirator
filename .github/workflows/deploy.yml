@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4.7"
+
+      - name: Build manifests
+        run: ruby build.rb
+
+      - name: Prepare site
+        run: |
+          mkdir _site
+          cp -r index.html app.js style.css config.yaml assets pages _site/
+          CSS_HASH=$(sha1sum _site/style.css | cut -c1-8)
+          JS_HASH=$(sha1sum _site/app.js | cut -c1-8)
+          CONTENT_HASH=$(find _site/pages _site/config.yaml -type f | sort | xargs sha1sum | sha1sum | cut -c1-8)
+          sed -i "s|const CACHE_BUST = ''|const CACHE_BUST = '?v=$CONTENT_HASH'|" _site/app.js
+          sed -i "s|style.css|style.css?v=$CSS_HASH|" _site/index.html
+          sed -i "s|app.js|app.js?v=$JS_HASH|" _site/index.html
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
